@@ -14,46 +14,13 @@ import FroalaEditor from 'react-froala-wysiwyg';
 import $ from 'jquery';
 window.$ = $;
 
-$.FroalaEditor.DefineIcon('alert', {NAME: 'info'});
-$.FroalaEditor.RegisterCommand('alert', {
-  title: 'Hello',
-  focus: false,
-  undo: false,
-  refreshAfterCallback: false,
-  callback: function () {
-    alert('Hello!');
-  }
-});
-
-$.FroalaEditor.DefineIcon('clear', {NAME: 'remove'});
-$.FroalaEditor.RegisterCommand('clear', {
-  title: 'Clear HTML',
-  focus: false,
-  undo: true,
-  refreshAfterCallback: true,
-  callback: function () {
-    this.html.set('');
-    this.events.focus();
-  }
-});
-
-$.FroalaEditor.DefineIcon('insert', {NAME: 'plus'});
-$.FroalaEditor.RegisterCommand('insert', {
-  title: 'Insert HTML',
-  focus: true,
-  undo: true,
-  refreshAfterCallback: true,
-  callback: function () {
-    this.html.insert('My New HTML');
-  }
-});
-
-
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <FroalaEditor tag='textarea' config={ {toolbarButtons: ['insert']} } />
+        <FroalaEditor tag='textarea' config={{
+          toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'getPDF', 'spellChecker', 'help', 'html', '|', 'undo', 'redo']
+        }} />
       </div>
     );
   }
