@@ -23,22 +23,17 @@ class App extends React.Component {
     }
     this.toggle(true);
   }
-  componentDidMount() {}
   toggle(boolean) {
     this.setState({
       boolean: boolean
     })
-    if (boolean) {
-      // edit.on
-    }else {
-      // edit.off
-    }
   }
+
   render() {
     return (
       <div>
-        <div id="froala-editor" >
-          <FroalaEditor tag="textarea" config={{toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'getPDF', 'spellChecker', 'help', 'html', '|', 'undo', 'redo'] }} />
+        <div id="froala-editor" disabled={this.state.boolean} >
+          <FroalaEditor onManualControllerReady={this.handleManualController} tag="textarea" config={{toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'getPDF', 'spellChecker', 'help', 'html', '|', 'undo', 'redo'] }} />
         </div>
 
         <button type="button" onClick={() => this.toggle(!this.state.boolean) }>
