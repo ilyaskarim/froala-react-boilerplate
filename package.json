@@ -6,7 +6,7 @@
     "jquery": "^3.3.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-froala-wysiwyg": "^2.9.2",
+    "react-froala-wysiwyg": "^2.9.5-1",
     "react-scripts": "2.1.5"
   },
   "scripts": {

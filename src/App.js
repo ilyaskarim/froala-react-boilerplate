@@ -14,11 +14,15 @@ import FroalaEditor from 'react-froala-wysiwyg';
 import $ from 'jquery';
 window.$ = $;
 
+
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <FroalaEditor tag='textarea'/>
+        <FroalaEditor tag='textarea' config={{
+        	toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'getPDF', 'spellChecker', 'help', 'html', '|', 'undo', 'redo'],
+        }}>asd</FroalaEditor>
       </div>
     );
   }
