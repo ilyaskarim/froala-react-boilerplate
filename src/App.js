@@ -20,10 +20,12 @@ class App extends React.Component {
     super(props);
     this.state=  {
       boolean: true,
-      editor: null
+      editor: null,
+      model: "123123123"
     }
     this.toggle(true);
     this.toggle = this.toggle.bind(this);
+    this.handleModelChange = this.handleModelChange.bind(this);
     this.handleManualController = this.handleManualController.bind(this);
   }
   toggle(boolean) {
@@ -37,6 +39,12 @@ class App extends React.Component {
     }
   }
 
+  handleModelChange(e) {
+    this.setState({
+      model: e
+    })
+  }
+
   handleManualController(e) {
     e.initialize();
     this.setState({
@@ -48,7 +56,11 @@ class App extends React.Component {
     return (
       <div>
         <div id="froala-editor">
-          <FroalaEditor onManualControllerReady={this.handleManualController} tag="textarea" config={{toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'getPDF', 'spellChecker', 'help', 'html', '|', 'undo', 'redo'] }} />
+          <FroalaEditor onManualControllerReady={this.handleManualController} tag="textarea" config={{toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineClass', 'inlineStyle', 'paragraphStyle', 'lineHeight', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'embedly', 'insertFile', 'insertTable', '|', 'emoticons', 'fontAwesome', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'getPDF', 'spellChecker', 'help', 'html', '|', 'undo', 'redo'] }}
+            model={this.state.model}
+            onModelChange={this.handleModelChange}
+           >
+          </FroalaEditor>
         </div>
 
         <button type="button" onClick={() => this.toggle(!this.state.boolean) }>
