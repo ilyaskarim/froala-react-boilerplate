@@ -15,10 +15,42 @@ import $ from 'jquery';
 window.$ = $;
 
 class App extends Component {
+  handleManualControllerA(arg) {
+    arg.initialize();
+    console.log(arg)
+  }
+  handleManualControllerB(arg) {
+    arg.initialize();
+    console.log(arg)
+  }
+  handleManualControllerC(arg) {
+    arg.initialize();
+    console.log(arg)
+  }
   render() {
     return (
       <div className="App">
-        <FroalaEditor tag='textarea'/>
+        <FroalaEditor onManualControllerReady={this.handleManualControllerA} config={{
+          events: {
+            "froalaEditor.initialized": function (e,a) {
+              console.log(e,a)
+            }
+          }
+        }} tag='textarea'/>
+        <FroalaEditor onManualControllerReady={this.handleManualControllerB} config={{
+          events: {
+            "froalaEditor.initialized": function (e,a) {
+              console.log(e,a)
+            }
+          }
+        }} tag='textarea'/>
+        <FroalaEditor onManualControllerReady={this.handleManualControllerC} config={{
+          events: {
+            "froalaEditor.initialized": function (e,a) {
+              console.log(e,a)
+            }
+          }
+        }} tag='textarea'/>
       </div>
     );
   }
